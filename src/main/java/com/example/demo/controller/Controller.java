@@ -10,9 +10,14 @@ import java.util.List;
 public class Controller {
 
     @GetMapping
-    public List<museum> getMuseum(){
+    public museum getMuseum(){
 
-        List<museum> mu
-        return
+        String[] amenities = {"ramps", "braille", "guide dogs"};
+
+        museum moma = new museum("moma", "moma address",5, amenities,
+                "moma.org", "about mom", "9am-9pm");
+
+        return moma;
+
     }
 }
