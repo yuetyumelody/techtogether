@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
-@CrossOrigin(origins = "localhost:3000")
+
 @RestController
 public class Controller {
 
@@ -17,6 +17,7 @@ public class Controller {
     private Service service;
 
     @GetMapping("/museums")
+    @CrossOrigin
     public ArrayList<museum> getSortedMuseumList(){
 
         ArrayList<museum> sortedList = service.sortMuseum(service.getMuseumList());
@@ -26,6 +27,7 @@ public class Controller {
     }
 
     @GetMapping("/museum")
+    @CrossOrigin
     public museum getMuseum(@RequestParam int id){
         ArrayList<museum> mList = service.sortMuseum(service.getMuseumList());
 
