@@ -5,20 +5,20 @@ import java.util.ArrayList;
 public class museum {
 
     //data fields
-    String name;
-    String address;
-    int distance;
-    ArrayList<String> amenities;
-    String website;
-    String about;
-    String hours;
+    public String name;
+    public String address;
+    public int distance;
+    public String[] amenities;
+    public String website;
+    public String about;
+    public String hours;
 
     //for ranking purposes or things calculated from data field
-    int score;
-    boolean openNow;
+    public int totalScore;
+    public boolean openNow;
 
     //constructor
-    public museum (String name, String address, int distance, String[] amenities, String website, String about, String hours){
+    public museum (String name, String address, String website, String hours, String about, int distance, String[] amenities){
         this.name = name;
         this.address = address;
         this.distance = distance;
@@ -26,7 +26,7 @@ public class museum {
         this.website = website;
         this.about = about;
         this.hours = hours;
-
+        this.totalScore = totalScore(amenities);
 
     }
 
@@ -48,6 +48,7 @@ public class museum {
     }
 
     public boolean isOpenNow(){
+
         return this.openNow;
     }
 
@@ -59,6 +60,10 @@ public class museum {
         return this.hours;
     }
 
+    public int getTotalScore(){
+        return totalScore;
+    }
+
 
 
 
@@ -66,9 +71,14 @@ public class museum {
 
     // functions for calculating scores
 
-    public int ascore(ArrayList<String> amenities){
-        int ascore = amenities.size();
-        return ascore;
+    public int ascore(String[] amenities){
+        int counter = 0;
+        for (int i=0; i< amenities.length; i++){
+            if (amenities[i].equals("t")){
+                counter++;
+            }
+        }
+        return counter;
     }
 
     public int dscore(){
@@ -76,7 +86,13 @@ public class museum {
 
     }
 
-    public int totalscore(){
+    public int totalScore(String[] amenities){
+        int a = ascore(amenities);
+        int d = dscore();
+        int tscore = a+d;
+
+        return tscore;
+
 
     }
 
