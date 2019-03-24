@@ -80,7 +80,7 @@ public class museum {
     public int ascore(String[] amenities){
         int counter = 0;
         for (int i=0; i< amenities.length; i++){
-            if (amenities[i].equals("t")){
+            if (amenities[i].equals("T")){
                 counter++;
             }
         }
