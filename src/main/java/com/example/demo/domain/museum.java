@@ -18,6 +18,9 @@ public class museum {
     public int totalScore;
     public boolean openNow;
 
+    //for cards
+    public boolean[] amenitiesBool;
+
     //constructor
     public museum (String name, String address, String website, String hours, String about, int distance,
                    String[] amenities, int index){
@@ -30,6 +33,7 @@ public class museum {
         this.hours = hours;
         this.totalScore = totalScore(amenities);
         this.index = index;
+        this.amenitiesBool = new boolean[]{true, true, false, false, true, true};
 
     }
 
