@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class museum {
 
     //data fields
+    public int index;
     public String name;
     public String address;
     public int distance;
@@ -18,7 +19,8 @@ public class museum {
     public boolean openNow;
 
     //constructor
-    public museum (String name, String address, String website, String hours, String about, int distance, String[] amenities){
+    public museum (String name, String address, String website, String hours, String about, int distance,
+                   String[] amenities, int index){
         this.name = name;
         this.address = address;
         this.distance = distance;
@@ -27,6 +29,7 @@ public class museum {
         this.about = about;
         this.hours = hours;
         this.totalScore = totalScore(amenities);
+        this.index = index;
 
     }
 
@@ -64,12 +67,15 @@ public class museum {
         return totalScore;
     }
 
-
+    public int getIndex() {
+        return this.index;
+    }
 
 
 
 
     // functions for calculating scores
+    //need user input from frontend
 
     public int ascore(String[] amenities){
         int counter = 0;

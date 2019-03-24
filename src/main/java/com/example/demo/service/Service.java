@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 import com.example.demo.domain.museum;
 import com.example.demo.domain.importfile;
+
+import java.io.IOException;
 import java.util.*;
 
 
@@ -9,16 +11,24 @@ import java.util.*;
 public class Service {
 
     //museum list
+    importfile x = new importfile();
     ArrayList<museum> museumList;
 
-    importfile x = new importfile();
-    museumList = x.populateList();
+    public Service() throws IOException {
+        museumList = x.populateList();
+    }
+
+    public ArrayList<museum> getMuseumList(){
+        return museumList;
+    }
 
 
 
-    public void sortMuseum (ArrayLi <museum> museumList) {
+
+    public ArrayList<museum> sortMuseum (ArrayList <museum> museumList) {
        // ArrayList<museum> sortedMuseums = new ArrayList<museum>();
         int n = museumList.size();
+        ArrayList<museum> sortedMuseums;
 
         for (int i =0; i<n; i++){
 
@@ -32,8 +42,9 @@ public class Service {
 
             museumList.get(j+1).totalScore = key;
 
-
         }
+        sortedMuseums = museumList;
+        return sortedMuseums;
 
 
 

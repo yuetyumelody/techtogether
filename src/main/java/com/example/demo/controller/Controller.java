@@ -4,20 +4,32 @@ import com.example.demo.domain.museum;
 import com.example.demo.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.*;
 
-@RestController("api/museums")
+@RestController
 public class Controller {
 
     @Autowired
     private Service service;
 
-    @GetMapping
-    public List<museum> getMuseum(){
+    @GetMapping("/museums")
+    public ArrayList<museum> getSortedMuseumList(){
 
-        return moma;
+        ArrayList<museum> sortedList = service.sortMuseum(service.getMuseumList());
+
+        return sortedList;
+
+    }
+
+    @GetMapping("/museum")
+    public museum getMuseum(@RequestParam int id){
+        ArrayList<museum> mList = service.sortMuseum(service.getMuseumList());
+
+        return mList.get(id);
+
 
     }
 }
