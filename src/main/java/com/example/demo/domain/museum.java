@@ -76,6 +76,8 @@ public class museum {
 
     // functions for calculating scores
     //need user input from frontend
+    //use that to create the String of amenities
+    // for simplicity purposes, dummy data is used
 
     public int ascore(String[] amenities){
         int counter = 0;
