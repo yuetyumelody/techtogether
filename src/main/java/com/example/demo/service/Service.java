@@ -28,22 +28,25 @@ public class Service {
     public ArrayList<museum> sortMuseum (ArrayList <museum> museumList) {
        // ArrayList<museum> sortedMuseums = new ArrayList<museum>();
         int n = museumList.size();
-        ArrayList<museum> sortedMuseums;
+        ArrayList<museum> sortedMuseums = new ArrayList<museum>();
 
         for (int i =0; i<n; i++){
 
             int key = museumList.get(i).getTotalScore();
             int j = i-1;
 
-            while(j>0 && museumList.get(i).getTotalScore() > key) {
-                museumList.get(j+1).totalScore = key;
+            while(j>=0 && museumList.get(i).getTotalScore() > key) {
+                museumList.get(j+1).totalScore = museumList.get(j).totalScore;
                 j = j-1;
             }
 
             museumList.get(j+1).totalScore = key;
 
         }
-        sortedMuseums = museumList;
+        for (int k=9; k>=0; k--){
+            sortedMuseums.add(museumList.get(k));
+
+        }
         return sortedMuseums;
 
 
